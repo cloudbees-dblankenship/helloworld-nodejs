@@ -32,5 +32,18 @@ pipeline {
         echo "TODO - build and push image"
       }
     }
+    stage('Deploy') {
+      when {
+        beforeAgent true 
+        beforeInput true //tells the when block to execute before the input is required so we only ask for input on master
+        branch 'master'
+      }
+      input {
+        message "Should we continue?"
+      }
+      steps {
+        echo "Continuing with Deployment"
+      }
+    }
   }
 }
