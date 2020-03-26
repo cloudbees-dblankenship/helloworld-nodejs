@@ -43,6 +43,8 @@ pipeline {
       }
       input {
         message "Should we continue?"
+        submitter "dblankenship-ops"
+        submitterParameter "APPROVER"
       }
       steps {
         echo "Continuing with Deployment"
