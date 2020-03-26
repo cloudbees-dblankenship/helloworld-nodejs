@@ -10,6 +10,7 @@ pipeline {
         kubernetes {
           label 'nodejs-app-pod'
           yamlFile 'nodejs-pod.yaml'
+        }
       }
       steps {
         checkout scm // clones and checkouts the code
