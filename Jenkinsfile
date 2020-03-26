@@ -38,6 +38,9 @@ pipeline {
         beforeInput true //tells the when block to execute before the input is required so we only ask for input on master
         branch 'master'
       }
+      options {
+        timeout(time: 45, unit: 'SECONDS')
+      }
       input {
         message "Should we continue?"
       }
