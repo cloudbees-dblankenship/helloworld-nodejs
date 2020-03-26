@@ -4,6 +4,9 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '2')) //limits the log and and artifacts that are retained
     skipDefaultCheckout true //skips checking out the code by default in every stage
   }
+  triggers {
+    eventTrigger simpleMatch('hello-api-deploy-event')
+  }
   stages {
     stage( 'Test' ) {
       agent { 
